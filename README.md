@@ -46,6 +46,7 @@ URL parameters: `?autostart=1` (skip title), `?level=N`, `?seed=N` (random skirm
 - [Build and deploy](docs/BUILD.md): single-file build, Pages workflow, tests
 - [How it was made](docs/HOW-IT-WAS-MADE.md): the parallel agent swarm story
 - [Build timeline](docs/BUILD-TIMELINE.md): tracker stages, durations and Gantt chart
+- [Build spec](docs/BUILD-SPEC.md): the full recipe to recreate this build from scratch
 - [ARCHITECTURE.md](ARCHITECTURE.md): the binding module contract
 - [Balance notes](docs/BALANCE.md), [Learnings](docs/LEARNINGS.md), [Swarm reports](docs/swarm/reports/)
 - Site source: [docs/site/index.html](docs/site/index.html)

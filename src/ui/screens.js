@@ -137,7 +137,19 @@ export function createScreens({ settings, progress, levels = [], bus, cb = {}, u
   };
 
   function shade(ctx, a) { ctx.save(); ctx.fillStyle = `rgba(5,3,15,${a})`; ctx.fillRect(0, 0, W, H); ctx.restore(); }
-  function stars(ctx, x, y, n, sc = 1) { drawText(ctx, '*'.repeat(n) + '-'.repeat(3 - n), x, y, { scale: sc, color: n ? PALETTE.cheese : PALETTE.dim, align: 'center' }); }
+  function stars(ctx, x, y, n, sc = 1) { // vector stars (the pixel font has no star glyph); y = top of a text row of the same scale
+    const R = 4.5 * sc, gap = R * 2.6, cy = y + 3.5 * sc;
+    for (let i = 0; i < 3; i++) {
+      const cx = x + (i - 1) * gap, on = i < n;
+      ctx.beginPath();
+      for (let k = 0; k < 10; k++) { const a = -Math.PI / 2 + k * Math.PI / 5, rr = k % 2 ? R * 0.45 : R; ctx[k ? 'lineTo' : 'moveTo'](cx + Math.cos(a) * rr, cy + Math.sin(a) * rr); }
+      ctx.closePath();
+      ctx.save();
+      if (on) { ctx.fillStyle = PALETTE.cheese; ctx.shadowColor = PALETTE.cheese; ctx.shadowBlur = 6 * sc; ctx.fill(); }
+      ctx.lineWidth = Math.max(1, sc * 0.6); ctx.strokeStyle = on ? PALETTE.cream : PALETTE.dim; ctx.stroke();
+      ctx.restore();
+    }
+  }
 
   S.draw = (ctx, t = S.t) => {
     ctx.save();
