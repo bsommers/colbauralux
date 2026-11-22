@@ -53,7 +53,30 @@ URL parameters: `?autostart=1` (skip title), `?level=N`, `?seed=N` (random skirm
 ## Build timeline
 
 <!-- TIMELINE:BEGIN -->
-The agent swarm built the game in **7m 49s** of wall-clock time (11 agents, 2.1x parallelism). Stage table and details: [docs/BUILD-TIMELINE.md](docs/BUILD-TIMELINE.md).
+From the request to a **playable public site: 11m 42s** (04:33:28 to 04:45:10 UTC). Including the docs follow-up and redeploy: 13m 48s. The agent swarm itself took **7m 49s** (11 agents, 2.1x parallelism). Stage tables and details: [docs/BUILD-TIMELINE.md](docs/BUILD-TIMELINE.md).
+
+**End to end**
+
+```mermaid
+gantt
+    title Colbauralux end to end (UTC, 2026-11-22)
+    dateFormat HH:mm:ss
+    axisFormat %H:%M
+    section Orchestration
+    Request and setup (read tooling  scaffold  contract  SWARM.md) :Reques043328, 04:33:28, 04:36:17
+    section Swarm
+    Agent swarm (11 agents  see below) :crit, Agent043617, 04:36:17, 04:44:06
+    Balance retune (levels 2-14  difficulty override) :Balanc043920, 04:39:20, 04:40:43
+    Cheese-wheel art polish :Cheese044115, 04:41:15, 04:41:47
+    section Ship
+    Final gates  build rename  site links  commit and push :Final044406, 04:44:06, 04:44:29
+    GitHub Pages first deploy (public repo) :GitHub044439, 04:44:39, 04:45:10
+    section Docs
+    Build timeline docs  commit :Build044510, 04:45:10, 04:46:33
+    Pages redeploy :Pages044636, 04:46:36, 04:47:16
+```
+
+**Agent swarm (tracker)**
 
 ```mermaid
 gantt

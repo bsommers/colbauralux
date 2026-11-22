@@ -4,6 +4,44 @@
 
 **Wall-clock for the agent swarm: 7m 49s** (04:36:17 to 04:44:06 UTC). **11 agents**, 16m 36s of summed agent time (so about 2.1x parallelism). All agents ran on the `sonnet` tier.
 
+## End to end
+
+From the request to a **playable public site: 11m 42s** (04:33:28 to 04:45:10 UTC). Including the docs follow-up and redeploy: 13m 48s.
+
+```mermaid
+gantt
+    title Colbauralux end to end (UTC, 2026-11-22)
+    dateFormat HH:mm:ss
+    axisFormat %H:%M
+    section Orchestration
+    Request and setup (read tooling  scaffold  contract  SWARM.md) :Reques043328, 04:33:28, 04:36:17
+    section Swarm
+    Agent swarm (11 agents  see below) :crit, Agent043617, 04:36:17, 04:44:06
+    Balance retune (levels 2-14  difficulty override) :Balanc043920, 04:39:20, 04:40:43
+    Cheese-wheel art polish :Cheese044115, 04:41:15, 04:41:47
+    section Ship
+    Final gates  build rename  site links  commit and push :Final044406, 04:44:06, 04:44:29
+    GitHub Pages first deploy (public repo) :GitHub044439, 04:44:39, 04:45:10
+    section Docs
+    Build timeline docs  commit :Build044510, 04:45:10, 04:46:33
+    Pages redeploy :Pages044636, 04:46:36, 04:47:16
+```
+
+| Phase | Step | Start | End | Duration | Source |
+|---|---|---|---|---|---|
+| Orchestration | Request and setup (read tooling, scaffold, contract, SWARM.md) | 04:33:28 | 04:36:17 | 2m 49s | transcript start to first agent launch |
+| Swarm | Agent swarm (11 agents, see below) | 04:36:17 | 04:44:06 | 7m 49s | tracker |
+| Swarm | Balance retune (levels 2-14, difficulty override) | 04:39:20 | 04:40:43 | 1m 23s | follow-up agent, file mtimes (approx) |
+| Swarm | Cheese-wheel art polish | 04:41:15 | 04:41:47 | 32s | follow-up agent, file mtime (approx) |
+| Ship | Final gates, build rename, site links, commit and push | 04:44:06 | 04:44:29 | 23s | git commit time |
+| Ship | GitHub Pages first deploy (public repo) | 04:44:39 | 04:45:10 | 31s | GitHub Actions run |
+| Docs | Build timeline docs, commit | 04:45:10 | 04:46:33 | 1m 23s | git commit time |
+| Docs | Pages redeploy | 04:46:36 | 04:47:16 | 40s | GitHub Actions run |
+
+Rows marked approx come from file modification times of follow-up agents the tracker did not record; everything else is exact.
+
+## Swarm (tracker)
+
 ```mermaid
 gantt
     title Colbauralux swarm build (UTC, 2026-11-22)
