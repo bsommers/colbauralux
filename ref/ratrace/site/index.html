@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Omega Ratrace</title>
+<meta name="description" content="Omega Ratrace: a 2026 remake of the 1981 arcade classic Omega Race, in the Colby Jack cat universe. Zero assets, zero dependencies.">
+<meta property="og:title" content="Omega Ratrace">
+<meta property="og:description" content="Fly Colby the cat through the Mouse Hole. A remake inspired by Omega Race, with zero assets and zero dependencies.">
+<meta property="og:image" content="https://bsommers.github.io/omega-ratrace/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://bsommers.github.io/omega-ratrace/">
+<meta name="twitter:image" content="https://bsommers.github.io/omega-ratrace/img/og.png">
+<link rel="canonical" href="https://bsommers.github.io/omega-ratrace/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="img/favicon.png">
+<style>
+  :root {
+    --bg: #05030f; --panel: #120c26; --text: #fff3cf; --dim: #a7a7cc;
+    --accent: #ff9b2e; --wall: #7df9ff; --hot: #ff4fd8; --line: #2b2150;
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) { --bg: #fff8ea; --panel: #ffffff; --text: #1d1433; --dim: #5a5378; --accent: #c4540a; --wall: #0a7ea0; --hot: #b3207f; --line: #e6dcc4; }
+  }
+  :root[data-theme="light"] { --bg: #fff8ea; --panel: #ffffff; --text: #1d1433; --dim: #5a5378; --accent: #c4540a; --wall: #0a7ea0; --hot: #b3207f; --line: #e6dcc4; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { background: var(--bg); color: var(--text); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  a { color: var(--wall); }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+  header.hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
+  header.hero img { display: block; width: 100%; height: auto; max-height: 70vh; object-fit: cover; }
+  header.hero .title { position: absolute; left: 0; right: 0; bottom: 0; padding: 48px 16px 20px; background: linear-gradient(transparent, var(--bg)); }
+  h1 { margin: 0; font-size: clamp(2rem, 6vw, 3.4rem); letter-spacing: .04em; color: var(--accent); text-shadow: 0 0 18px rgba(255,155,46,.45); }
+  .tag { margin: 6px 0 0; color: var(--dim); font-size: 1.05rem; }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; margin: 22px 0 8px; }
+  .btn { display: inline-block; padding: 12px 20px; border-radius: 8px; font-weight: 700; text-decoration: none; border: 2px solid var(--accent); color: var(--bg); background: var(--accent); }
+  .btn.ghost { background: transparent; color: var(--accent); }
+  .btn:focus-visible { outline: 3px solid var(--wall); outline-offset: 3px; }
+  section { padding: 28px 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type { border-bottom: 0; }
+  h2 { margin: 0 0 12px; font-size: 1.4rem; color: var(--wall); }
+  p { margin: 0 0 12px; }
+  ul { margin: 0; padding-left: 20px; }
+  li { margin: 4px 0; }
+  .shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+  figure { margin: 0; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+  figure img { display: block; width: 100%; height: auto; }
+  figcaption { padding: 8px 12px; color: var(--dim); font-size: .9rem; }
+  table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--hot); font-weight: 700; }
+  kbd { font: inherit; font-size: .85em; padding: 1px 6px; border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 4px; background: var(--panel); }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  @media (max-width: 720px) { .two { grid-template-columns: 1fr; } }
+  footer { padding: 24px 0 40px; color: var(--dim); font-size: .9rem; }
+  footer p { margin: 0 0 6px; }
+  @media (prefers-reduced-motion: no-preference) {
+    h1 { animation: glow 3s ease-in-out infinite alternate; }
+    @keyframes glow { from { text-shadow: 0 0 10px rgba(255,155,46,.3); } to { text-shadow: 0 0 22px rgba(255,79,216,.55); } }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <img src="img/hero.png" alt="Colby, a marbled orange-and-white cat, flies a neon ship through a ring of mice and rats around the glowing Mouse Hole.">
+  <div class="title">
+    <div class="wrap">
+      <h1>OMEGA RATRACE</h1>
+      <p class="tag">A 2026 remake of the 1981 arcade classic <em>Omega Race</em>. You are Colby, the cat, and the cat is the spaceship.</p>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="cta">
+    <a class="btn" href="play/">Play in your browser</a>
+    <a class="btn ghost" href="omega-ratrace.html">Single-file version</a>
+    <a class="btn ghost" href="https://github.com/bsommers/omega-ratrace/releases/latest">Download release</a>
+    <a class="btn ghost" href="https://github.com/bsommers/omega-ratrace">Source on GitHub</a>
+  </div>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>Fly Colby around the ring corridor that surrounds the central Mouse Hole. Thrust with Newtonian inertia, bounce off the force-field walls without taking damage, and ricochet hairballs off them. Rats and mice launch from the Mouse Hole. The Death Rat hunts you if you linger.</p>
+    <p>This is a remake inspired by Omega Race. It uses no original assets from the 1981 game. All art is drawn in code, all sound is synthesized, and the game has no runtime dependencies.</p>
+  </section>
+
+  <section id="shots">
+    <h2>Screenshots</h2>
+    <div class="shots">
+      <figure>
+        <img src="img/title.png" alt="Title screen with the Colby portrait and logo." loading="lazy">
+        <figcaption>Title screen</figcaption>
+      </figure>
+      <figure>
+        <img src="img/wave1.png" alt="Wave 1: Colby fires hairballs at mice circling the glowing Mouse Hole." loading="lazy">
+        <figcaption>Wave 1</figcaption>
+      </figure>
+      <figure>
+        <img src="img/wave8.png" alt="Wave 8: a x4 combo, score, lives and bombs in the HUD." loading="lazy">
+        <figcaption>Wave 8 with a combo</figcaption>
+      </figure>
+      <figure>
+        <img src="img/vic.png" alt="VIC-20 mode: the game drawn at 232x130 in the 16-colour VIC-I palette." loading="lazy">
+        <figcaption>VIC-20 mode (press V)</figcaption>
+      </figure>
+      <figure>
+        <img src="img/pause.png" alt="Pause menu with Resume, Options and Quit." loading="lazy">
+        <figcaption>Pause menu</figcaption>
+      </figure>
+      <figure>
+        <img src="img/options.png" alt="Options menu with volumes, CRT, autofire, mute and VIC-20 mode." loading="lazy">
+        <figcaption>Options</figcaption>
+      </figure>
+      <figure>
+        <img src="img/gameover.png" alt="New high score screen asking for three initials." loading="lazy">
+        <figcaption>High score initials</figcaption>
+      </figure>
+      <figure>
+        <img src="img/mobile.png" alt="The game in a narrow 844 by 390 window." loading="lazy">
+        <figcaption>Narrow window</figcaption>
+      </figure>
+      <figure>
+        <img src="img/bot-play.gif" alt="Animation of the autopilot playing wave 4." loading="lazy">
+        <figcaption>The bot playing (animated)</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="controls">
+    <h2>Controls</h2>
+    <div class="two">
+      <table>
+        <thead><tr><th>Action</th><th>Keys</th></tr></thead>
+        <tbody>
+          <tr><td>Rotate</td><td><kbd>←</kbd> <kbd>→</kbd> or <kbd>A</kbd> <kbd>D</kbd></td></tr>
+          <tr><td>Thrust</td><td><kbd>↑</kbd> or <kbd>W</kbd></td></tr>
+          <tr><td>Fire</td><td><kbd>Space</kbd> or <kbd>Z</kbd></td></tr>
+          <tr><td>Yarn bomb</td><td><kbd>X</kbd> or <kbd>Shift</kbd></td></tr>
+          <tr><td>Pause</td><td><kbd>P</kbd> or <kbd>Esc</kbd></td></tr>
+          <tr><td>Mute / CRT / Fullscreen</td><td><kbd>M</kbd> / <kbd>C</kbd> / <kbd>F</kbd></td></tr>
+          <tr><td>VIC-20 retro mode</td><td><kbd>V</kbd></td></tr>
+        </tbody>
+      </table>
+      <div>
+        <p>Gamepad and touch controls work too. Touch devices get an on-screen stick and FIRE and BOMB buttons.</p>
+        <p>Full rules, enemies and scoring are in <a href="https://github.com/bsommers/omega-ratrace/blob/main/docs/HOW-TO-PLAY.md">docs/HOW-TO-PLAY.md</a>. Press <kbd>V</kbd> for VIC-20 mode; <code>?vic=1</code> starts in it.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="rules">
+    <h2>Quick rules</h2>
+    <ul>
+      <li>You start with 3 lives and 1 yarn bomb. Tuna pickups give bombs, up to 3.</li>
+      <li>Clear each wave to earn a bonus of wave number × 250. Waves 1 to 24 are hand-authored; after that they are generated and keep escalating.</li>
+      <li>Kills chain within 2 seconds. The combo multiplier climbs to ×5.</li>
+      <li>Extra lives at 10,000 and 30,000 points, then every 30,000.</li>
+      <li>The top 8 scores are kept in your browser.</li>
+    </ul>
+  </section>
+
+  <section id="build">
+    <h2>Run it yourself</h2>
+    <p>Needs Node 22 or newer. No install step.</p>
+    <p><code>npm start</code> serves the game at http://localhost:4796. <code>npm test</code> runs the test suite. <code>npm run build</code> makes the minified bundle and the single-file HTML.</p>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <p>Omega Ratrace is a remake inspired by Omega Race (1981). No original assets are reused.</p>
+  <p>Part of the Colby Jack cat universe. Licensed Apache-2.0. <a href="https://github.com/bsommers/omega-ratrace/blob/main/docs/HOW-IT-WAS-MADE.md">How it was made</a>.</p>
+</footer>
+
+</body>
+</html>
