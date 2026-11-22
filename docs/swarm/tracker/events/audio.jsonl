@@ -1,0 +1,4 @@
+{"t":"2026-11-22T04:37:42.198Z","agent":"audio","state":"start","pct":0,"msg":"port ratrace audio, tests"}
+{"t":"2026-11-22T04:38:22.699Z","agent":"audio","state":"progress","pct":50,"msg":"sfx/music/audio ported"}
+{"t":"2026-11-22T04:38:22.719Z","agent":"audio","state":"progress","pct":80,"msg":"tests pass"}
+{"t":"2026-11-22T04:38:22.740Z","agent":"audio","state":"done","pct":100,"msg":"audio ported, 6 tests pass"}

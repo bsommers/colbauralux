@@ -1,0 +1,5 @@
+{"t":"2026-11-22T04:37:43.828Z","agent":"ui-shell","state":"start","pct":0,"msg":"input/settings/hud/screens/menus/main + tests"}
+{"t":"2026-11-22T04:38:22.411Z","agent":"ui-shell","state":"progress","pct":10,"msg":"read contract + refs"}
+{"t":"2026-11-22T04:40:06.471Z","agent":"ui-shell","state":"progress","pct":45,"msg":"input/settings/menus/hud/screens written"}
+{"t":"2026-11-22T04:40:44.739Z","agent":"ui-shell","state":"progress","pct":65,"msg":"main/index/style done, tests green"}
+{"t":"2026-11-22T04:41:13.672Z","agent":"ui-shell","state":"done","pct":100,"msg":"UI shell built; 14 tests pass; title/play/win/levels shots clean"}

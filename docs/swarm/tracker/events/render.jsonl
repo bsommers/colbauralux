@@ -1,0 +1,5 @@
+{"t":"2026-11-22T04:36:17.890Z","agent":"render","state":"start","pct":0,"msg":"port ratrace render, batched ships, fx, ripple"}
+{"t":"2026-11-22T04:36:49.122Z","agent":"render","state":"progress","pct":30,"msg":"background + particles written"}
+{"t":"2026-11-22T04:37:22.336Z","agent":"render","state":"progress","pct":60,"msg":"renderer written"}
+{"t":"2026-11-22T04:37:46.512Z","agent":"render","state":"progress","pct":90,"msg":"tests pass, fallback verified"}
+{"t":"2026-11-22T04:37:53.209Z","agent":"render","state":"done","pct":100,"msg":"renderer/particles/background + 7 tests pass"}

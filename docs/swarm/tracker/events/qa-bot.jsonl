@@ -1,0 +1,3 @@
+{"t":"2026-11-22T04:38:06.528Z","agent":"qa-bot","state":"start","pct":0,"msg":"adapt botplay, run matrix, BALANCE.md"}
+{"t":"2026-11-22T04:39:11.947Z","agent":"qa-bot","state":"progress","pct":90,"msg":"matrix run, BALANCE.md"}
+{"t":"2026-11-22T04:39:11.965Z","agent":"qa-bot","state":"done","pct":100,"msg":"botplay + tests + BALANCE.md; L12 unwinnable, L4/6/9/14 <50%"}

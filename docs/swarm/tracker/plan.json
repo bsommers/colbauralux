@@ -1,0 +1,186 @@
+{
+ "project": "Colbauralux",
+ "tagline": "Auralux, but the cheese is real and the cat is in charge. Colby Jack Clowder vs the rats.",
+ "startedAt": "2026-11-22T04:36:03.185Z",
+ "phases": [
+  {
+   "id": "p2",
+   "name": "p2",
+   "status": "pending"
+  },
+  {
+   "id": "p3",
+   "name": "p3",
+   "status": "pending"
+  },
+  {
+   "id": "p4",
+   "name": "p4",
+   "status": "pending"
+  },
+  {
+   "id": "p5",
+   "name": "p5",
+   "status": "pending"
+  }
+ ],
+ "agents": [
+  {
+   "id": "sim-core",
+   "model": "sonnet",
+   "phase": "p2",
+   "role": "sim",
+   "name": "Sim core",
+   "owns": [
+    "src/sim/game.js",
+    "src/sim/spatial.js",
+    "test/sim-core.test.mjs"
+   ],
+   "desc": "Implement ARCHITECTURE.md §4 exactly: planets, queued launches, ships, spatial-grid combat, planet capture/levelup/production, win/lose, all §5 events, determinism, `maxShips`. Guard a missing `./ai.js` with dynamic fall"
+  },
+  {
+   "id": "levels",
+   "model": "sonnet",
+   "phase": "p2",
+   "role": "levels",
+   "name": "Levels and generator",
+   "owns": [
+    "src/sim/levels.js",
+    "test/levels.test.mjs"
+   ],
+   "desc": "Implement ARCHITECTURE.md §6 levels part: >= 14 campaign levels with pun names/blurbs and sensible `par` seconds, `generateLevel`, `validateLevel`. Tests: all levels + 50 generated seeds validate, generation deterministi"
+  },
+  {
+   "id": "sim-ai",
+   "model": "sonnet",
+   "phase": "p2",
+   "role": "sim",
+   "name": "Enemy AI",
+   "owns": [
+    "src/sim/ai.js",
+    "src/sim/autopilot.js",
+    "test/sim-ai.test.mjs"
+   ],
+   "desc": "Implement ARCHITECTURE.md §6 AI part + `createAutopilot` (§11). If `src/sim/game.js` is not there yet poll for it, meanwhile write the AI against the §4 API with a small stub game in your test. Once game.js exists, prove"
+  },
+  {
+   "id": "art-vector",
+   "model": "sonnet",
+   "phase": "p2",
+   "role": "art",
+   "name": "Neon vector art",
+   "owns": [
+    "src/art/vector.js",
+    "test/art-vector.test.mjs"
+   ],
+   "desc": "Implement ARCHITECTURE.md §7 by adapting `ref/ratrace/art/vector.js`. Verify with `node tools/art-sheet.mjs` / `tools/sheet.mjs` style contact sheets in `out/previews/` (adapt the tool args if needed; you may edit `tools"
+  },
+  {
+   "id": "render",
+   "model": "sonnet",
+   "phase": "p2",
+   "role": "render",
+   "name": "Renderer, particles, background",
+   "owns": [
+    "src/render/renderer.js",
+    "src/render/background.js",
+    "src/render/particles.js",
+    "test/render.test.mjs"
+   ],
+   "desc": "Implement ARCHITECTURE.md §8 adapting `ref/ratrace/render/*`. Ships drawn batched; benchmark with a synthetic 600-ship game object using the recording stub; add a planet-captured ripple and `fx` handlers for every `FX_TY"
+  },
+  {
+   "id": "audio",
+   "model": "sonnet",
+   "phase": "p2",
+   "role": "audio",
+   "name": "WebAudio synth",
+   "owns": [
+    "src/audio/audio.js",
+    "src/audio/sfx.js",
+    "src/audio/music.js",
+    "test/audio.test.mjs",
+    "tools/sfx-wav.mjs"
+   ],
+   "desc": "Implement ARCHITECTURE.md §9 adapting `ref/ratrace/audio/*`. Offline render every SFX/MUSIC name to check peak levels, durations, loop seams; tests as ratrace."
+  },
+  {
+   "id": "ui-shell",
+   "model": "sonnet",
+   "phase": "p3",
+   "role": "ui",
+   "name": "App shell, input, HUD, screens",
+   "owns": [
+    "index.html",
+    "style.css",
+    "src/main.js",
+    "src/core/input.js",
+    "src/core/settings.js",
+    "src/ui/hud.js",
+    "src/ui/screens.js",
+    "src/ui/menus.js",
+    "test/ui-shell.test.mjs"
+   ],
+   "desc": "Implement ARCHITECTURE.md §10 adapting `ref/ratrace/{main,input,settings,hud,screens,menus}`. Wait (poll) for sim-core/art-vector/render/audio files; use fallbacks until present. Prove input swipe-select logic in node te"
+  },
+  {
+   "id": "qa-bot",
+   "model": "sonnet",
+   "phase": "p3",
+   "role": "qa",
+   "name": "Bot harness and balance",
+   "owns": [
+    "tools/botplay.mjs",
+    "test/qa-bot.test.mjs",
+    "docs/BALANCE.md"
+   ],
+   "desc": "Adapt `tools/botplay.mjs`: autopilot vs AI over all `LEVELS` x difficulties, report winner/time/peak ships/ms per step. Flag levels the autopilot (as player) cannot win on normal and levels trivial under 20 s; write find"
+  },
+  {
+   "id": "logo-icons",
+   "model": "sonnet",
+   "phase": "p3",
+   "role": "art",
+   "name": "Logo, icons, promo graphics",
+   "owns": [
+    "docs/site/img/**",
+    "docs/site/logo/**",
+    "tools/make-icons.mjs",
+    "favicon.svg",
+    "icon-*.png"
+   ],
+   "desc": "Create the snazzy brand kit with code only (SVG + node canvas-free PNG writer or the game's own renderer through `tools/shot.mjs`): `logo.svg` (COLBAURALUX wordmark: neon cheese wheel with cat ears, orange/purple), `logo"
+  },
+  {
+   "id": "docs-site",
+   "model": "sonnet",
+   "phase": "p4",
+   "role": "docs",
+   "name": "Documentation and GitHub Pages",
+   "owns": [
+    "README.md",
+    "docs/HOW-TO-PLAY.md",
+    "docs/ARCH-OVERVIEW.md",
+    "docs/BUILD.md",
+    "docs/HOW-IT-WAS-MADE.md",
+    "docs/site/index.html",
+    "docs/site/style.css",
+    "docs/site/**.html",
+    ".github/workflows/pages.yml"
+   ],
+   "desc": "Full documentation: README (logo, hero, badges, quickstart, controls, link to every doc and the Pages site), HOW-TO-PLAY, ARCH-OVERVIEW (ASCII + Mermaid diagrams of sim/render/audio/ui/AI, data flow), BUILD (single-file "
+  },
+  {
+   "id": "integrate-qa",
+   "model": "sonnet",
+   "phase": "p5",
+   "role": "qa",
+   "name": "Integration and polish",
+   "owns": [
+    "test/integration.test.mjs",
+    "docs/LEARNINGS.md"
+   ],
+   "desc": "Run `npm test`, `node tools/check-imports.mjs`, `tools/smoke_web.sh`, full bot campaign, strict screenshots of every state. Fix nothing you do not own; file precise Requests in your report listing file, line, defect. You"
+  }
+ ]
+}

@@ -45,9 +45,38 @@ URL parameters: `?autostart=1` (skip title), `?level=N`, `?seed=N` (random skirm
 - [Architecture overview](docs/ARCH-OVERVIEW.md): sim, render, audio, UI, AI, with diagrams
 - [Build and deploy](docs/BUILD.md): single-file build, Pages workflow, tests
 - [How it was made](docs/HOW-IT-WAS-MADE.md): the parallel agent swarm story
+- [Build timeline](docs/BUILD-TIMELINE.md): tracker stages, durations and Gantt chart
 - [ARCHITECTURE.md](ARCHITECTURE.md): the binding module contract
 - [Balance notes](docs/BALANCE.md), [Learnings](docs/LEARNINGS.md), [Swarm reports](docs/swarm/reports/)
 - Site source: [docs/site/index.html](docs/site/index.html)
+
+## Build timeline
+
+<!-- TIMELINE:BEGIN -->
+The agent swarm built the game in **7m 49s** of wall-clock time (11 agents, 2.1x parallelism). Stage table and details: [docs/BUILD-TIMELINE.md](docs/BUILD-TIMELINE.md).
+
+```mermaid
+gantt
+    title Colbauralux swarm build (UTC, 2026-11-22)
+    dateFormat HH:mm:ss
+    axisFormat %H:%M
+    section p2
+    Sim core :sim_core, 04:36:17, 04:37:57
+    Neon vector art :active, art_vector, 04:36:17, 04:37:28
+    Renderer, particles, background :render, 04:36:17, 04:37:53
+    Enemy AI :sim_ai, 04:36:17, 04:37:54
+    Levels and generator :active, levels, 04:36:18, 04:37:32
+    WebAudio synth :active, audio, 04:37:42, 04:38:22
+    section p3
+    App shell, input, HUD, screens :ui_shell, 04:37:43, 04:41:13
+    Logo, icons, promo graphics :active, logo_icons, 04:38:02, 04:38:46
+    Bot harness and balance :active, qa_bot, 04:38:06, 04:39:11
+    section p4
+    Documentation and GitHub Pages :docs_site, 04:41:33, 04:44:06
+    section p5
+    Integration and polish :active, integrate_qa, 04:42:04, 04:42:50
+```
+<!-- TIMELINE:END -->
 
 ## Layout
 

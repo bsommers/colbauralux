@@ -1,0 +1,3 @@
+{"t":"2026-11-22T04:36:17.775Z","agent":"sim-core","state":"start","pct":0,"msg":"game.js, spatial.js, tests"}
+{"t":"2026-11-22T04:37:15.485Z","agent":"sim-core","state":"progress","pct":40,"msg":"game.js + spatial.js written"}
+{"t":"2026-11-22T04:37:57.851Z","agent":"sim-core","state":"done","pct":100,"msg":"sim core + 13 tests pass"}

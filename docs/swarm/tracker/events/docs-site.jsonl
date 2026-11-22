@@ -1,0 +1,5 @@
+{"t":"2026-11-22T04:41:33.074Z","agent":"docs-site","state":"start","pct":0,"msg":"docs, site, shots, pages workflow"}
+{"t":"2026-11-22T04:41:46.104Z","agent":"docs-site","state":"progress","pct":15,"msg":"pages workflow written"}
+{"t":"2026-11-22T04:42:18.904Z","agent":"docs-site","state":"progress","pct":45,"msg":"markdown docs written"}
+{"t":"2026-11-22T04:43:07.258Z","agent":"docs-site","state":"progress","pct":75,"msg":"site written"}
+{"t":"2026-11-22T04:44:06.647Z","agent":"docs-site","state":"done","pct":100,"msg":"docs, site, shots, pages workflow complete"}

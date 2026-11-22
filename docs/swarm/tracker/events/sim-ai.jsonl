@@ -1,0 +1,4 @@
+{"t":"2026-11-22T04:36:17.956Z","agent":"sim-ai","state":"start","pct":0,"msg":"AI + autopilot per ARCH 4/6/11"}
+{"t":"2026-11-22T04:37:00.152Z","agent":"sim-ai","state":"progress","pct":30,"msg":"ai.js + autopilot.js written"}
+{"t":"2026-11-22T04:37:38.575Z","agent":"sim-ai","state":"progress","pct":60,"msg":"stub tests green"}
+{"t":"2026-11-22T04:37:54.266Z","agent":"sim-ai","state":"done","pct":100,"msg":"AI+autopilot done; all personalities win 1v1 in <110s, tests green"}
